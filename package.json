@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "start": "node src/app.js",
+    "test": "jest --coverage",
+    "test:e2e": "node tests/ui.test.js",
+    "lint": "eslint src/*.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,11 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
-    "jest": "^30.3.0"
+    "@eslint/js": "^10.0.1",
+    "chromedriver": "^148.0.1",
+    "eslint": "^10.2.1",
+    "globals": "^17.5.0",
+    "jest": "^30.3.0",
+    "selenium-webdriver": "^4.43.0"
   }
 }
