@@ -25,10 +25,15 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '20'
-
       
-      - name: Install dependencies
+      - name: Instalar dependências
         run: npm install
 
-      - name: Run Jest
+      - name: Análise Estática de Código (ESLint)
+        run: npm run lint
+
+      - name: Instalar Chrome 
+        run: sudo apt-get update && sudo apt-get install google-chrome-stable
+
+      - name: Testes de Unidade/Integração (Jest)
         run: npm test
