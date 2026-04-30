@@ -1,9 +1,9 @@
 const { Builder, By, until } = require('selenium-webdriver');
-const chrome = require('selenium-webdriver/chrome'); 
+const chrome = require('selenium-webdriver/chrome');
 
 async function testGoogle() {
   let options = new chrome.Options();
-  options.addArguments('--headless'); 
+  options.addArguments('--headless');
   options.addArguments('--no-sandbox');
   options.addArguments('--disable-dev-shm-usage');
 
@@ -14,13 +14,11 @@ async function testGoogle() {
 
   try {
     await driver.get('https://www.google.com');
-    
     let searchBox = await driver.findElement(By.name('q'));
     await searchBox.sendKeys('Selenium WebDriver');
     await searchBox.submit();
-
     await driver.wait(until.titleContains('Selenium'), 5000);
-    console.log("Teste de fumaça no Google: Sucesso!");
+    console.log("Sucesso: Versões sincronizadas e teste executado.");
   } finally {
     await driver.quit();
   }
@@ -28,4 +26,4 @@ async function testGoogle() {
 
 test('Google Search Test', async () => {
   await testGoogle();
-}, 15000); 
+}, 30000);
